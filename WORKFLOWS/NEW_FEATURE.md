@@ -54,3 +54,9 @@ Update AI Docs (+ مستند ميزة جديد)
 - **أنشئ `FEATURES/NN_NewFeature.md`** (38 قسمًا، اتبع قالب المستندات القائمة).
 - حدّث `FEATURE_INDEX.md` (صف + عمود Web) · `PROJECT_PROGRESS.md` · `FEATURE_GRAPH.md` (تبعيات) · `API_INDEX.md`/`DATABASE_INDEX.md`/`SEARCH_INDEX.md` حسب المضاف.
 - قرار معماري مهم → `DECISIONS/ARCHITECTURE_DECISIONS.md`.
+
+---
+
+## سياسات إلزامية (Governance)
+- **قبل التنفيذ (خطوة 2/Impact):** تحليل أثر كامل — [[Impact_Analysis]] (كل الأبعاد + Risk Level + Dependencies + Breaking + Migration + Rollback + Testing scope). لا كود بلا تحليل أثر.
+- **قبل الإتمام:** استوفِ [[Completion_Gate]] — أي بند ناقص (ومنه مزامنة التوثيق + إنشاء مستند الميزة الجديد) = ❌ INCOMPLETE.

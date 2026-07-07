@@ -55,3 +55,9 @@ Update AI Docs (TECH_DEBT ✓ مُغلق)
 - `PROJECT_PROGRESS.md` سجل. لو تغيّر عقد → `API_INDEX.md` + قسم Web + `WEB_MOBILE_COMPARISON.md`.
 
 > بديل جاهز: `/security-review` (أداة الهارنس) لمراجعة أمنية للفرع.
+
+---
+
+## سياسات إلزامية (Governance)
+- **قبل التنفيذ (خطوة 2/Severity):** تحليل أثر كامل — [[Impact_Analysis]]. الأمان غالبًا Risk = 🟠/🔴 → اكتب عادي (بلا اختصار)، حدّد Breaking (auth مضاف قد يكسر عملاء) + Rollback + Migration.
+- **قبل الإتمام:** استوفِ [[Completion_Gate]] — أي بند ناقص (ومنه مزامنة التوثيق + إثبات إغلاق الثغرة + KNOWN_ISSUES/TECH_DEBT ✓) = ❌ INCOMPLETE.

@@ -41,10 +41,11 @@ AI/
 │   ├── BUG_FIX.md · NEW_FEATURE.md · REFACTOR.md
 │   └── CODE_REVIEW.md · PERFORMANCE.md · SECURITY.md
 │
-├── STANDARDS/                أنماط الكود الفعلية (اتبعها، لا تخترع)
+├── STANDARDS/                أنماط الكود + سياسات إلزامية
 │   ├── ARCHITECTURE.md · FOLDER_STRUCTURE.md · NAMING.md
-│   ├── STATE_MANAGEMENT.md · API_RULES.md · ERROR_HANDLING.md
-│   └── CODING_STANDARDS.md
+│   ├── STATE_MANAGEMENT.md · API_RULES.md · ERROR_HANDLING.md · CODING_STANDARDS.md
+│   ├── Impact_Analysis.md   ⚠️ إلزامي قبل أي تنفيذ (تحليل أثر كامل)
+│   └── Completion_Gate.md   ✅ إلزامي قبل إعلان الإتمام (بند ناقص = INCOMPLETE)
 │
 ├── TESTING/                  REGRESSION_CHECKLIST · FEATURE_TESTS · SMOKE_TESTS
 │
@@ -63,9 +64,11 @@ AI/
 - **تعدّل شيء؟** شوف من يتأثّر في `FEATURE_GRAPH.md`.
 - **فرق الويب عن الموبايل؟** `WEB_MOBILE_COMPARISON.md`.
 
-## ⚖️ قاعدتان ذهبيّتان
+## ⚖️ قواعد ذهبية
 1. **عقد API يتغيّر → Backend أولًا**، ثم الموبايل والويب على العقد الجديد، ثم التوثيق.
 2. **لا كود قبل الموافقة** — كل تدفّق عمل يمرّ ببوابة موافقة (الخطوة 7).
+3. **لا تنفيذ بلا تحليل أثر** — `STANDARDS/Impact_Analysis.md` إلزامي قبل التنفيذ (كل الأبعاد + Risk + Deps + Breaking + Migration + Rollback + Testing).
+4. **لا إتمام بلا بوابة الإنجاز** — `STANDARDS/Completion_Gate.md`: أي بند ناقص (ومنه مزامنة التوثيق) = ❌ INCOMPLETE.
 
 ## 📌 أخطر ما يحتاج إجراء عاجل
 راجع `DECISIONS/TECH_DEBT.md` القسم 🔴 — أبرزها: أثر RCE (`monarx-analyzer.php`)، `rates` بلا auth + تسريب email، الـAPI بلا صلاحيات دقيقة، backdoor بيئة بالإنتاج.

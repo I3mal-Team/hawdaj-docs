@@ -53,3 +53,9 @@ Update AI Docs
 ## 8. Update AI Docs
 - قسم **Performance** بمستند الميزة (حدّث ما انحلّ). `PROJECT_PROGRESS.md` سجل بالأرقام.
 - `DECISIONS/TECH_DEBT.md`: علّم عنق الأداء المُسدَّد. `DATABASE_INDEX.md` لو أُضيف فهرس.
+
+---
+
+## سياسات إلزامية (Governance)
+- **قبل التنفيذ (خطوة 2/Impact + Root Cause):** تحليل أثر كامل — [[Impact_Analysis]]. تأكّد أن التحسين **لا يكسر السلوك** (Breaking = لا) + Testing scope يشمل إعادة القياس.
+- **قبل الإتمام:** استوفِ [[Completion_Gate]] — أي بند ناقص (ومنه مزامنة التوثيق + إثبات التحسّن بقياس) = ❌ INCOMPLETE.

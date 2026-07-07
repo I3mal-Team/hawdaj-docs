@@ -51,3 +51,9 @@ Update AI Docs
 - حدّث مستند الميزة لو تغيّرت الملفات/البنية (Files Involved، How to Modify).
 - `PROJECT_PROGRESS.md` سجل. `DECISIONS/TECH_DEBT.md`: علّم الدَّين المُسدَّد أو المتبقّي.
 - `STANDARDS/` لو الـrefactor أرسى نمطًا جديدًا يُعتمد.
+
+---
+
+## سياسات إلزامية (Governance)
+- **قبل التنفيذ (خطوة 2/Impact + Blast Radius):** تحليل أثر كامل — [[Impact_Analysis]]. ركّز على Breaking Changes = **لا شيء** (العقود/السلوك ثابتة) + Rollback (خطوات عكوسة).
+- **قبل الإتمام:** استوفِ [[Completion_Gate]] — أي بند ناقص (ومنه مزامنة التوثيق) = ❌ INCOMPLETE.

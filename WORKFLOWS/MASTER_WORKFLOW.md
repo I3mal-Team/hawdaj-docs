@@ -20,20 +20,21 @@
 
 ---
 
-## الـPipeline العام (11 خطوة — من الدستور §2)
+## الـPipeline العام (12 خطوة — من الدستور §2)
 
 ```
 TRIGGER (كلمة قصيرة)
         ↓
-[1] Read AI Docs        اقرأ CLAUDE + FEATURE_INDEX + مستند الميزة + الفهارس
+[1] Read AI Docs        قائمة التحميل الإلزامية (CLAUDE + الفهارس + مستند الميزة + KNOWN_ISSUES)
         ↓
 [2] Affected Features   طابق الطلب على FEATURE_INDEX (أو اقترح ميزة جديدة)
         ↓
-[3] Impact Analysis     السلوك الحالي · الاتساق عبر المنصّات · أداء/أمان/UX
+[3] ⚠️ IMPACT ANALYSIS  إلزامي — القالب الكامل في STANDARDS/Impact_Analysis.md
+                        (كل الأبعاد + Risk Level + Deps + Breaking + Migration + Rollback + Testing)
         ↓
-[4] Affected Layers     Flutter · Backend · Web · Database
+[4] Affected Layers     Flutter · Backend · Web · Database  (ضمن تحليل الأثر)
         ↓
-[5] Risks               عدّد + صنّف (Low/Medium/High) + تخفيف
+[5] Risks               Low/Medium/High/Critical + تخفيف
         ↓
 [6] Plan                خيار أو اثنين: خطوات · ملفات · إيجابيات/سلبيات · تعقيد (S/M/L)
         ↓
@@ -47,12 +48,19 @@ TRIGGER (كلمة قصيرة)
         ↓
 [11] Update AI Docs     مستند الميزة (ألحِق) · INDEX · PROGRESS · CHANGE_LOG (دائمًا)
                         · KNOWN_ISSUES (حادثة) · TECH_DEBT/DECISIONS (دَين/قرار)
+        ↓
+[12] ✅ COMPLETION GATE   القائمة الإلزامية في STANDARDS/Completion_Gate.md
+                        أي بند ناقص → ❌ INCOMPLETE (المهمة لا تُعتبر منتهية)
 ```
+
+> الخطوتان الملزِمتان: **[3] Impact Analysis** ([[Impact_Analysis]]) قبل أي تنفيذ · **[12] Completion Gate** ([[Completion_Gate]]) قبل إعلان الإتمام. لا تدفّق يبدأ تنفيذًا بلا [3]، ولا تدفّق ينتهي بلا [12] (ومنه مزامنة التوثيق).
 
 ---
 
 ## قواعد ثابتة عبر كل التدفّقات
 
+- **تحليل الأثر (خطوة 3) إلزامي قبل أي تنفيذ** — [[Impact_Analysis]]. لا كود بلا تحليل أثر كامل.
+- **بوابة الإنجاز (خطوة 12) إلزامية قبل إعلان الإتمام** — [[Completion_Gate]]. بند ناقص = ❌ INCOMPLETE.
 - **بوابة الموافقة (خطوة 7) إلزامية.** لا استثناء إلا لو المستخدم قال صراحة "نفّذ بدون خطة".
 - **القاعدة الذهبية:** تغيير يمسّ عقد API → **Backend أولًا**، ثم الموبايل والويب، ثم التوثيق.
 - **قراءة قبل الكتابة:** لا تعدّل/تحذف ملفًا لم تفحصه.

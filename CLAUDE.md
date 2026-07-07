@@ -47,7 +47,8 @@ AI/
 ├── FEATURES/                 مستند لكل ميزة 01..32 (38 قسمًا) ✅
 ├── WORKFLOWS/                MASTER_WORKFLOW · BUG_FIX · NEW_FEATURE · REFACTOR · CODE_REVIEW · PERFORMANCE · SECURITY   ✅
 ├── DECISIONS/                TECH_DEBT · ARCHITECTURE_DECISIONS   ✅
-├── STANDARDS/                ARCHITECTURE · CODING_STANDARDS · NAMING · FOLDER_STRUCTURE · STATE_MANAGEMENT · API_RULES · ERROR_HANDLING   ✅
+├── STANDARDS/                ARCHITECTURE · CODING_STANDARDS · NAMING · FOLDER_STRUCTURE · STATE_MANAGEMENT · API_RULES · ERROR_HANDLING
+│                             + **Impact_Analysis** (إلزامي قبل التنفيذ) · **Completion_Gate** (إلزامي قبل الإتمام)   ✅
 └── TESTING/                  REGRESSION_CHECKLIST · FEATURE_TESTS · SMOKE_TESTS   ✅
 ```
 
@@ -67,7 +68,7 @@ AI/
 
 1. **اقرأ توثيق AI/** — قائمة التحميل أعلاه (FEATURE_INDEX أولًا، ثم مستند الميزة، ثم الفهارس، ثم KNOWN_ISSUES).
 2. **حدّد الميزات المتأثّرة** — طابق الطلب على `FEATURE_INDEX.md`. لو ميزة جديدة، اقترح إدخالًا: الاسم، وصف مختصر، المنصّات المتأثّرة (Flutter/Backend/Web/DB)، التبعيات.
-3. **تحليل الأثر (Impact Analysis)** — سلوك الميزة الحالي، الاتساق عبر المنصّات (موبايل/ويب/باك)، الأداء/الأمان/UX. اذكر صراحة: التغييرات المباشرة، الآثار الجانبية، تحديثات التوثيق/الاختبارات المطلوبة.
+3. **تحليل الأثر (Impact Analysis) — إلزامي.** نفّذه بالكامل حسب **[[Impact_Analysis]]** (`STANDARDS/Impact_Analysis.md`): كل الأبعاد (Mobile/Backend/Web/DB/API/Shared Models/Auth/Permissions/Localization/Notifications/Real-time/Performance/Security/الميزات المتأثّرة/مخاطر الانحدار) + Risk Level + Dependencies + Breaking Changes + Migration + Rollback + Testing scope. ممنوع تجاوز أي بُعد.
 4. **اكتشف المكوّنات المتأثّرة** — صنّفها:
    - **Flutter:** شاشات/widgets/تنقّل (go_router)/حالة (Cubit)/أنيميشن.
    - **Backend:** APIs/منطق عمل/تكاملات/jobs/observers.
@@ -84,6 +85,7 @@ AI/
    - `FEATURE_INDEX` · `PROJECT_PROGRESS` · **`CHANGE_LOG` (دائمًا، سطر لكل تغيير)**.
    - `API_INDEX` لو تغيّر API · `DATABASE_INDEX` لو تغيّر DB · `FEATURE_GRAPH` لو تغيّرت التبعيات.
    - **`KNOWN_ISSUES`** لو حادثة تشغيلية/بيئية · `DECISIONS/TECH_DEBT` لو دَين جديد/مُسدَّد · `DECISIONS/ARCHITECTURE_DECISIONS` لو قرار معماري.
+12. **بوابة الإنجاز (Completion Gate) — إلزامية.** لا تُعلن الإتمام إلا بعد استيفاء **كل** بنود **[[Completion_Gate]]** (`STANDARDS/Completion_Gate.md`). أي بند ناقص → المهمة **❌ INCOMPLETE**. اعرض القائمة معلّمة الحالة في نهاية المهمة.
 
 ---
 

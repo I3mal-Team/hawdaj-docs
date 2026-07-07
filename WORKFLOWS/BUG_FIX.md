@@ -77,6 +77,10 @@ Update AI Docs
 
 ---
 
+## سياسات إلزامية (Governance)
+- **قبل التنفيذ (خطوة 2/Impact):** تحليل أثر كامل — [[Impact_Analysis]] (كل الأبعاد + Risk Level + Dependencies + Breaking + Migration + Rollback + Testing scope). لا كود بلا تحليل أثر.
+- **قبل الإتمام:** استوفِ [[Completion_Gate]] — أي بند ناقص (ومنه مزامنة التوثيق) = ❌ INCOMPLETE.
+
 ## مثال مصغّر
 > المستخدم: `اعمل Bug — التقييم بنجمة صفر بيتقبل`
 > Claude: يفتح `FEATURES/14_RatesReviews.md` → السبب: `RateController` بلا `numeric|between:1,5` (§18) → طبقة Backend (يمسّ الموبايل+الويب) → خطر Medium → خطة: أضف validation + رسالة → ⛔ ينتظر الموافقة.

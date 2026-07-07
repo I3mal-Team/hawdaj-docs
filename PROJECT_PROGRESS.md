@@ -52,11 +52,13 @@ Progress bar: `[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓�
 | 29 | Report Module (OUT OF SCOPE) | P4 | ✅ Done | 100% |
 | 30 | Visitor Tracking / Guard | P4 | ✅ Done | 100% |
 | 31 | Auto-Translation Observers | P3 | ✅ Done | 100% |
+| 33 | Chat / Messaging (User↔Guide) | P2 | 🟡 PLANNED (design) | 0% built |
 
 ---
 
 ## Change Log
 
+- **2026-07-08** — 🟡 **Feature 33 (Chat / Messaging — User ↔ Tour Guide) — DESIGN/PLAN, 0% built.** Created `FEATURES/ChatMessaging.md`. Option B approved: REST + Polling (no WebSocket in Phase 1). **Polling policy:** 2s inside the chat-thread screen; stop immediately on exit; NO polling in the chat list (refresh on open/return); Phase 2 Realtime removes all polling. Backend-first contract: 5 endpoints under `auth('api')` (list conversations / start / messages?since / send / read) + two test-only tables `conversations` (unique user_id+guide_id) & `messages`. Entry from [[11_TourGuides]] details; builds on [[25_Realtime]] scaffold for Phase 2. Branch `feature/chat-messaging` (docs + api). Test env only, prod read-only. No code written yet — awaiting go on backend implementation. Open: mobile base branch (main vs add_ai), off-screen new-message notify, web parity, whether web design is implemented or mockup.
 - **2026-07-05** — Phase 1 (architecture analysis) completed for both repos. Phase 2 started: created `AI/`, `FEATURE_INDEX.md`, `PROJECT_PROGRESS.md`, `FEATURES/`.
 - **2026-07-05** — ✅ Feature 01 (Authentication & Profile) fully analyzed (100%). Created `FEATURES/01_Authentication.md` (31 sections + 7 KB sections). Added index files: FEATURE_GRAPH, SEARCH_INDEX, API_INDEX, DATABASE_INDEX.
 - **2026-07-05** — ✅ Feature 02 (Home & Sliders / Discovery) fully analyzed (100%). Created `FEATURES/02_Home.md` (all 31 + 7 sections + full flow).

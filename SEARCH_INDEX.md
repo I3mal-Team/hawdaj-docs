@@ -101,6 +101,7 @@
 | `Either`, `Failure`, `ServerFailure`, `dartz` | error handling | core/errors |
 | `spatie media`, `media library`, `UploadService`, `getFirstMedia` | media | Feature 23 |
 | `pusher`, `websockets`, `RealTimeMessage`, `broadcast` | real-time | Feature 25 |
+| `chat`, `messaging`, `محادثة`, `رسائل`, `conversation`, `messages`, `polling`, `since`, `chat thread`, `chat list`, `ChatThreadCubit`, `guide chat` | chat/messaging | Feature 33 (`ChatMessaging.md`) |
 | `ApiModalController`, `success()`, `error()`, `{code,message,data}` | response envelope | كل الميزات |
 | `monarx-analyzer`, `RCE`, `security`, `CORS`, `vulnerability` | security ⚠️ | Phase-1 report + 01 §29 |
 

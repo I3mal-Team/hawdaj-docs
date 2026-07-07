@@ -49,6 +49,7 @@ Status legend: ⬜ Not started · 🟡 In progress · ✅ Done (100%)
 | 30 | Visitor Tracking / Guard Check-in / Task Activity | Hidden / Internal | P4 | ✅ | 🟡 (geo headers each request) | `FEATURES/30_VisitorTracking.md` |
 | 31 | Auto-Translation Observers (Google Translate) | Hidden / Internal | P3 | ✅ | N/A (backend) | `FEATURES/31_TranslationObservers.md` |
 | 32 | AI ChatGPT Assistant (**WEB-ONLY**) | Web-only | P3 | ✅ | ✅ web / ❌ mobile | `FEATURES/32_AiAssistant.md` |
+| 33 | Chat / Messaging (User ↔ Tour Guide) | Core | P2 | 🟡 PLANNED (design) | ⬜ لاحقًا | `FEATURES/ChatMessaging.md` |
 
 ---
 

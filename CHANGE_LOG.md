@@ -6,6 +6,9 @@
 
 ---
 
+## 2026-07-08
+- `docs` · Chat/Messaging (#33) · **مستند تصميم جديد لميزة محادثة User↔Tour Guide (PLANNED).** Option B معتمَد: REST + Polling. سياسة Polling: 2s داخل شاشة المحادثة، إيقاف عند الخروج، لا Polling في القائمة (refresh عند الفتح/الرجوع)، Realtime لاحقًا يشيل Polling كله. عقد API (5 endpoints `auth('api')`)، جدولا `conversations`/`messages` (test فقط)، مدخل من [[11_TourGuides]]، يبني على سقالة [[25_Realtime]]. فرع `feature/chat-messaging` (docs+api). لا كود بعد. · `FEATURES/ChatMessaging.md`, `FEATURE_INDEX.md`, `SEARCH_INDEX.md`, `PROJECT_PROGRESS.md`
+
 ## 2026-07-07
 - `docs` · Governance · **سياسة "ابحث قبل أن تسأل" (Search_Before_Ask).** إنشاء `STANDARDS/Search_Before_Ask.md`: قبل أي سؤال توضيحي، ابحث في KB (Common Bugs/Debug Guide/Known Incidents/KNOWN_ISSUES/TECH_DEBT/CHANGE_LOG/SEARCH_INDEX) → حالة مشابهة تُعرَض بنسبة تشابه؛ وإلا سؤال واحد فقط. دُمجت في `CLAUDE.md §2`, `MASTER_WORKFLOW`, `BUG_FIX` (خطوة 1), README (قاعدة 6 + الشجرة). · `STANDARDS/Search_Before_Ask.md`, `CLAUDE.md`, `WORKFLOWS/MASTER_WORKFLOW.md`, `WORKFLOWS/BUG_FIX.md`, `README.md`
 - `docs` · Governance · **سياسة مزامنة التوثيق الإلزامية (Documentation_Sync).** إنشاء `STANDARDS/Documentation_Sync.md`: SSOT + تدفّق القرار (Code change → يؤثّر؟ → Update hawdaj-docs → commit → push → complete) + التحذير الإلزامي (نص عربي) + شروط INCOMPLETE (منها commit+push). دمجها في `CLAUDE.md §2` (+ التحذير + خطوة 12)، `Completion_Gate` (بندَا commit+push للتوثيق + التحذير)، `MASTER_WORKFLOW` (قاعدة ثابتة)، وكل التدفّقات السبعة (بند مزامنة في كتلة Governance)، README (قاعدة 5 + الشجرة)، شجرة CLAUDE. · `STANDARDS/Documentation_Sync.md`, `CLAUDE.md`, `STANDARDS/Completion_Gate.md`, `WORKFLOWS/*`, `README.md`

@@ -29,7 +29,9 @@ Update AI Docs
 - **اقرأ:** `FEATURE_INDEX.md` → حدّد الميزة → افتح `FEATURES/NN_*.md` (خصوصًا أقسام **Common Bugs** + **Debug Guide** + **Full Execution Flow**).
 - استخدم `SEARCH_INDEX.md` لو الميزة غير واضحة، `API_INDEX.md`/`DATABASE_INDEX.md` لو العطل في endpoint/جدول.
 - أعد إنتاج العطل ذهنيًا عبر تدفّق التنفيذ (UI→Cubit→Repo→API→Controller→Model→DB).
-- **الغموض؟** اسأل سؤالًا واحدًا محدّدًا (أي شاشة؟ رسالة الخطأ الحرفية؟) — لا تخمّن.
+- **ابحث قبل أن تسأل ([[Search_Before_Ask]]) — إلزامي:** قبل أي سؤال، ابحث عن حادثة مشابهة في Common Bugs · Debug Guide · Known Incidents · `KNOWN_ISSUES` · `TECH_DEBT` · `CHANGE_LOG` · `SEARCH_INDEX`.
+  - **وُجدت؟** اعرضها **مع نسبة التشابه** (`تشابه ~NN% — [[KNOWN_ISSUES#Kx]] — العَرَض — الحل`) وأكمِل عليها.
+  - **لم تُوجد؟** اسأل **سؤالًا واحدًا فقط** محدّدًا (أي شاشة؟ رسالة الخطأ الحرفية؟ status code؟) — لا تخمّن، لا أسئلة متعددة.
 
 ## 2. Impact Analysis
 - **السبب الجذري** (root cause) لا العَرَض. حدّد الملف:السطر المرشّح.

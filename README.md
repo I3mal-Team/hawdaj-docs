@@ -46,7 +46,8 @@ AI/
 │   ├── STATE_MANAGEMENT.md · API_RULES.md · ERROR_HANDLING.md · CODING_STANDARDS.md
 │   ├── Impact_Analysis.md      ⚠️ إلزامي قبل أي تنفيذ (تحليل أثر كامل)
 │   ├── Completion_Gate.md      ✅ إلزامي قبل الإتمام (بند ناقص = INCOMPLETE)
-│   └── Documentation_Sync.md   🔄 إلزامي: حدّث hawdaj-docs + commit + push (SSOT)
+│   ├── Documentation_Sync.md   🔄 إلزامي: حدّث hawdaj-docs + commit + push (SSOT)
+│   └── Search_Before_Ask.md    🔎 إلزامي: ابحث في KB عن حالة مشابهة قبل أي سؤال
 │
 ├── TESTING/                  REGRESSION_CHECKLIST · FEATURE_TESTS · SMOKE_TESTS
 │
@@ -71,6 +72,7 @@ AI/
 3. **لا تنفيذ بلا تحليل أثر** — `STANDARDS/Impact_Analysis.md` إلزامي قبل التنفيذ (كل الأبعاد + Risk + Deps + Breaking + Migration + Rollback + Testing).
 4. **لا إتمام بلا بوابة الإنجاز** — `STANDARDS/Completion_Gate.md`: أي بند ناقص (ومنه مزامنة التوثيق) = ❌ INCOMPLETE.
 5. **مزامنة التوثيق إلزامية** — `STANDARDS/Documentation_Sync.md`: أي تغيير كود يؤثّر على المعرفة → حدّث `hawdaj-docs` ثم **commit + push** قبل الإتمام. **`hawdaj-docs` = مصدر الحقيقة الوحيد؛ يجب ألّا يصبح أقدم من الكود.**
+6. **ابحث قبل أن تسأل** — `STANDARDS/Search_Before_Ask.md`: قبل أي سؤال توضيحي، ابحث في قاعدة المعرفة عن حوادث مشابهة → اعرضها بنسبة تشابه، أو اسأل سؤالًا واحدًا فقط.
 
 ## 📌 أخطر ما يحتاج إجراء عاجل
 راجع `DECISIONS/TECH_DEBT.md` القسم 🔴 — أبرزها: أثر RCE (`monarx-analyzer.php`)، `rates` بلا auth + تسريب email، الـAPI بلا صلاحيات دقيقة، backdoor بيئة بالإنتاج.

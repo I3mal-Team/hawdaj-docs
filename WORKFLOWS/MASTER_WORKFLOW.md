@@ -16,7 +16,9 @@
 | `بطيء` / `performance` / `أداء` | تدفّق أداء | `WORKFLOWS/PERFORMANCE.md` |
 | `security` / `أمان` / `ثغرة` | تدفّق أمان | `WORKFLOWS/SECURITY.md` |
 
-المستخدم لا يشرح التفاصيل. Claude يستنتج الميزة المتأثّرة من `FEATURE_INDEX.md` ويسأل فقط عند الغموض.
+المستخدم لا يشرح التفاصيل. Claude يستنتج الميزة المتأثّرة من `FEATURE_INDEX.md`.
+
+> **ابحث قبل أن تسأل ([[Search_Before_Ask]]):** عند الغموض، ابحث في قاعدة المعرفة أولًا (Common Bugs/Debug Guide/Known Incidents/`KNOWN_ISSUES`/`TECH_DEBT`/`CHANGE_LOG`/`SEARCH_INDEX`). حالة مشابهة → اعرضها بنسبة تشابه. لا شيء → سؤال واحد فقط.
 
 ---
 

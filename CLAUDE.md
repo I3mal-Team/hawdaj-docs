@@ -1,7 +1,7 @@
 # CLAUDE.md — دستور مشروع Hawdaj
 
-> هذا الملف هو **الدستور** (أهم ملف في `AI/`). أي جلسة جديدة تبدأ منه. اقرأه بالكامل قبل أي مهمة.
-> يُحمَّل تلقائيًا عبر مؤشّر في جذر الريبو (`/CLAUDE.md` → يشير هنا).
+> هذا الملف هو **الدستور** وقاعدة المعرفة المشتركة تعيش في ريبو مستقل: **`/Users/mac/hawdaj-docs`** (GitHub: `I3mal-Team/hawdaj-docs`) — **مصدر الحقيقة الوحيد** لكامل نظام Hawdaj.
+> ريبوهات الكود الثلاثة (موبايل/باك/ويب) تحوي فقط `CLAUDE.md` خفيفًا يشير هنا. أي جلسة في أي ريبو تبدأ من هذا الدستور.
 > Language: رُدّ على المستخدم بالعربية. اكتب الكود/الـcommits/التوثيق بشكل احترافي عادي.
 
 ---
@@ -16,10 +16,13 @@
 | **Backend + Admin** | `/Users/mac/hawdaj-api` | Laravel 8.12 · Sanctum (Bearer) · MySQL · Astrotomic Translatable · Spatie Permission/MediaLibrary · nwidart modules |
 | **Web** | `/Users/mac/hawdaj-frontend` | Angular 16 SSR (NgUniversal) · RxJS services · HttpClient · ngx-translate · PrimeNG/Material/Bootstrap |
 
+| **Shared AI KB** | `/Users/mac/hawdaj-docs` | هذا الريبو — مصدر الحقيقة الوحيد (docs فقط، لا كود) |
+
 - **Base URLs:** prod `https://dashboard.hawdaj.net/api/` · test `https://test.dashboard.hawdaj.net/api/`.
 - **Response envelope:** `{code/status, message, data}` (كل الطبقات).
 - **Locales:** ar/en/ru/zh + RTL.
 - **Payments:** لا توجد.
+- **Cross-Repo:** ريبو الكود ليس معزولًا — الـAPI مشترك بين الموبايل والويب. قبل أي تعديل حدّد الأثر عبر Mobile/Backend/Web/DB/APIs. القاعدة الذهبية: تغيير عقد API يبدأ Backend أولًا. بعد أي تنفيذ: زامن هذا الريبو (docs) — المهمة لا تكتمل قبلها.
 
 ---
 

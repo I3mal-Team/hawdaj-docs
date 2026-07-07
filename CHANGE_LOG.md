@@ -7,6 +7,7 @@
 ---
 
 ## 2026-07-07
+- `chore` · Governance · **نقل قاعدة المعرفة لريبو مستقل `hawdaj-docs` (I3mal-Team) كمصدر حقيقة وحيد.** إنشاء `CLAUDE.md` خفيف في كل ريبو كود (mobile/back/web) يشير للريبو المشترك (تحميل سياق إلزامي + وعي عابر للريبوهات + سياسة مزامنة). حذف النسخة المتداخلة المكرّرة من ريبو الموبايل. تحديث دستور الريبو المشترك §0. · `hawdaj/Untitled/CLAUDE.md`, `hawdaj-api/CLAUDE.md`, `hawdaj-frontend/CLAUDE.md`, `hawdaj-docs/CLAUDE.md`
 - `docs` · Governance · إضافة سياسة مزامنة KB + إنشاء `CHANGE_LOG.md` + `KNOWN_ISSUES.md` + تسجيل حوادث اليوم (K1–K4) + بنود دَين D44–D46 · `AI/CLAUDE.md`, `AI/KNOWN_ISSUES.md`, `AI/CHANGE_LOG.md`, `AI/DECISIONS/TECH_DEBT.md`, `AI/WORKFLOWS/*`, `AI/FEATURE_INDEX.md`, `AI/README.md`
 - `docs` · [[03_Trips]] · تسجيل حادثة SMTP 500 (بريد متزامن) في Common Bugs/Security · `AI/FEATURES/03_Trips.md`
 - `docs` · [[26_DashboardAdmin]] [[27_RolesPermissions]] [[21_ProfileSettings]] · تسجيل كاش الصلاحيات + بريد الإنشاء queued/catch صامت · مستندات الميزات

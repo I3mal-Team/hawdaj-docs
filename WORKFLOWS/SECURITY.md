@@ -59,5 +59,6 @@ Update AI Docs (TECH_DEBT ✓ مُغلق)
 ---
 
 ## سياسات إلزامية (Governance)
+- **مزامنة التوثيق (إلزامي):** أي أثر على قاعدة المعرفة → حدّث `hawdaj-docs` ثم **commit + push** قبل الإتمام — [[Documentation_Sync]].
 - **قبل التنفيذ (خطوة 2/Severity):** تحليل أثر كامل — [[Impact_Analysis]]. الأمان غالبًا Risk = 🟠/🔴 → اكتب عادي (بلا اختصار)، حدّد Breaking (auth مضاف قد يكسر عملاء) + Rollback + Migration.
 - **قبل الإتمام:** استوفِ [[Completion_Gate]] — أي بند ناقص (ومنه مزامنة التوثيق + إثبات إغلاق الثغرة + KNOWN_ISSUES/TECH_DEBT ✓) = ❌ INCOMPLETE.

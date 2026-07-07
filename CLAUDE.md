@@ -48,7 +48,7 @@ AI/
 ├── WORKFLOWS/                MASTER_WORKFLOW · BUG_FIX · NEW_FEATURE · REFACTOR · CODE_REVIEW · PERFORMANCE · SECURITY   ✅
 ├── DECISIONS/                TECH_DEBT · ARCHITECTURE_DECISIONS   ✅
 ├── STANDARDS/                ARCHITECTURE · CODING_STANDARDS · NAMING · FOLDER_STRUCTURE · STATE_MANAGEMENT · API_RULES · ERROR_HANDLING
-│                             + **Impact_Analysis** (إلزامي قبل التنفيذ) · **Completion_Gate** (إلزامي قبل الإتمام)   ✅
+│                             + **Impact_Analysis** (قبل التنفيذ) · **Completion_Gate** (قبل الإتمام) · **Documentation_Sync** (SSOT: حدّث+ادفع hawdaj-docs)   ✅
 └── TESTING/                  REGRESSION_CHECKLIST · FEATURE_TESTS · SMOKE_TESTS   ✅
 ```
 
@@ -58,8 +58,10 @@ AI/
 
 ## 2. سير العمل الإلزامي (قبل أي مهمة)
 
-> **سياسة حاكمة:** قاعدة المعرفة `AI/` جزء من الكود ومصدر الحقيقة. تبقى **مزامنة دائمًا** مع التنفيذ.
+> **سياسة حاكمة:** `hawdaj-docs` هو **مصدر الحقيقة الوحيد** — التوثيق يجب ألّا يصبح أقدم من التنفيذ أبدًا.
 > **تحديث التوثيق جزء من المهمة — لا يُستأذَن عليه.** لا تُنهِ مهمة والتوثيق قديم. لو لاحظت اختلافًا بين الكود والتوثيق (تغيير مطوّر آخر)، حدّث التوثيق تلقائيًا.
+> **[[Documentation_Sync]] (إلزامية):** أي تغيير كود (Flutter/Laravel/Angular) → اسأل "هل يؤثّر على التوثيق المشترك؟" → لو نعم: **حدّث hawdaj-docs ثم commit ثم push قبل اعتبار المهمة مكتملة.** الكود والتوثيق في ريبوهات منفصلة، فالتحديث المحلي لا يكفي.
+> **عند اكتشاف الأثر، توقّف وأبلغ:** ⚠️ تم اكتشاف أن هذا التعديل يؤثر على قاعدة المعرفة المشتركة. يجب تحديث الملفات المناسبة داخل مستودع hawdaj-docs. لا تعتبر المهمة مكتملة حتى يتم تحديث ورفع التوثيق.
 
 **قائمة التحميل الإلزامية (اقرأها قبل أي مهمة):**
 `CLAUDE.md` · `FEATURE_INDEX.md` · `FEATURE_GRAPH.md` · `API_INDEX.md` · `DATABASE_INDEX.md` · `PROJECT_PROGRESS.md` · `SEARCH_INDEX.md` · `KNOWN_ISSUES.md` · مستند الميزة المتأثّرة · الـworkflow المناسب · المعايير (`STANDARDS/`). لا تتخطَّ هذه الخطوة.
@@ -85,7 +87,7 @@ AI/
    - `FEATURE_INDEX` · `PROJECT_PROGRESS` · **`CHANGE_LOG` (دائمًا، سطر لكل تغيير)**.
    - `API_INDEX` لو تغيّر API · `DATABASE_INDEX` لو تغيّر DB · `FEATURE_GRAPH` لو تغيّرت التبعيات.
    - **`KNOWN_ISSUES`** لو حادثة تشغيلية/بيئية · `DECISIONS/TECH_DEBT` لو دَين جديد/مُسدَّد · `DECISIONS/ARCHITECTURE_DECISIONS` لو قرار معماري.
-12. **بوابة الإنجاز (Completion Gate) — إلزامية.** لا تُعلن الإتمام إلا بعد استيفاء **كل** بنود **[[Completion_Gate]]** (`STANDARDS/Completion_Gate.md`). أي بند ناقص → المهمة **❌ INCOMPLETE**. اعرض القائمة معلّمة الحالة في نهاية المهمة.
+12. **بوابة الإنجاز (Completion Gate) — إلزامية.** لا تُعلن الإتمام إلا بعد استيفاء **كل** بنود **[[Completion_Gate]]** (`STANDARDS/Completion_Gate.md`) **بما فيها commit + push لـ`hawdaj-docs`** (سياسة [[Documentation_Sync]]). أي بند ناقص → المهمة **❌ INCOMPLETE**. اعرض القائمة معلّمة الحالة في نهاية المهمة.
 
 ---
 

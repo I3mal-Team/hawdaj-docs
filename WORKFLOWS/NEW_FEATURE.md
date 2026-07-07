@@ -58,5 +58,6 @@ Update AI Docs (+ مستند ميزة جديد)
 ---
 
 ## سياسات إلزامية (Governance)
+- **مزامنة التوثيق (إلزامي):** أي أثر على قاعدة المعرفة → حدّث `hawdaj-docs` ثم **commit + push** قبل الإتمام — [[Documentation_Sync]].
 - **قبل التنفيذ (خطوة 2/Impact):** تحليل أثر كامل — [[Impact_Analysis]] (كل الأبعاد + Risk Level + Dependencies + Breaking + Migration + Rollback + Testing scope). لا كود بلا تحليل أثر.
 - **قبل الإتمام:** استوفِ [[Completion_Gate]] — أي بند ناقص (ومنه مزامنة التوثيق + إنشاء مستند الميزة الجديد) = ❌ INCOMPLETE.

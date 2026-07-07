@@ -57,5 +57,6 @@ Update AI Docs
 ---
 
 ## سياسات إلزامية (Governance)
+- **مزامنة التوثيق (إلزامي):** أي أثر على قاعدة المعرفة → حدّث `hawdaj-docs` ثم **commit + push** قبل الإتمام — [[Documentation_Sync]].
 - **قبل التنفيذ (خطوة 2/Impact + Root Cause):** تحليل أثر كامل — [[Impact_Analysis]]. تأكّد أن التحسين **لا يكسر السلوك** (Breaking = لا) + Testing scope يشمل إعادة القياس.
 - **قبل الإتمام:** استوفِ [[Completion_Gate]] — أي بند ناقص (ومنه مزامنة التوثيق + إثبات التحسّن بقياس) = ❌ INCOMPLETE.

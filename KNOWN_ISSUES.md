@@ -11,6 +11,7 @@
 - **السبب الجذري (دليل حرفي من رد السيرفر):** `Unable to connect to 173.194.203.27:587 (Connection timed out)` · `Swift_TransportException`. `173.194.203.27:587` = Gmail SMTP. سيرفر الإنتاج لا يقدر يفتح اتصالًا صادرًا على بورت 587. الإرسال **متزامن** داخل الطلب (`app/Http/Controllers/Api/TripController.php:85` — `Mail::send`).
 - **الأثر:** كل بريد يعتمد SMTP يفشل — حفظ الرحلة بالبريد + بريد إنشاء الأدمن (K4). الطلب يعلّق 31s قبل ما يفشل.
 - **حلّ مؤقّت:** لا يوجد للمستخدم النهائي (ميزة البريد معطّلة فعليًا).
+- **تخفيف جزئي (2026-07-08, `7969430`):** أُضيف `App\Mail\SafeMailTransport` — decorator يغلّف transport البريد ويبتلع أي `Swift_TransportException` (يسجّلها بدل رميها)، مسجّل عالميًا في `AppServiceProvider::boot()`. النتيجة: **الطلب لم يعد يرجّع 500 ولا يكسر job/notification** عند فشل SMTP. **لا يحلّ الجذر:** البورت 587 لا يزال مقفولًا، **لا تسليم فعلي للبريد**، وتأخّر ~31s (connection timeout) قد يبقى قبل ابتلاع الاستثناء. الحالة تبقى مفتوحة.
 - **حلّ جذري:** فتح البورت الصادر 587/465 على firewall السيرفر، **أو** التحوّل لمزوّد بريد عبر API على 443 (SendGrid/Mailgun/SES). + جعل الإرسال **queued** بدل متزامن + `try/catch`. تحقّق `MAIL_*` في `.env`.
 - **الميزة:** [[03_Trips]] · يطال [[21_ProfileSettings]] [[26_DashboardAdmin]]. مرتبط بدَين [[TECH_DEBT#D45]].
 
@@ -34,6 +35,7 @@
 - **السبب الجذري (دليل):** `App\Notifications\dashboard\userMailNotification` **`implements ShouldQueue`** → يحتاج `queue:work` شغّال. والإرسال ملفوف بـ`try { ... } catch (\Exception $e) {}` **صامت** في `app/Http/Controllers/Dashboard/Users/UsersController.php@store` (~سطر 95–98). + احتمال SMTP (K1).
 - **الأثر:** المشرف لا يدخل (لم تصله كلمة المرور)؛ الفشل غير مرئي.
 - **حلّ مؤقّت:** الأدمن يحدّد كلمة المرور وقت الإنشاء ويعطيها المشرف مباشرة (لا انتظار بريد).
+- **تخفيف جزئي (2026-07-08, `7969430`):** `SafeMailTransport` العالمي يسجّل فشل البريد بدل رميه (بدل الابتلاع الصامت داخل الـtransport) → رؤية أفضل في اللوق. لا يزال catch الصامت في `UsersController@store` يبتلع، والجذر (queue + SMTP) قائم.
 - **حلّ جذري:** تشغيل/إدارة `queue:work` دائمًا (Supervisor/systemd) + إصلاح SMTP (K1) + تسجيل الفشل بدل ابتلاعه + عرض تنبيه للأدمن. (تذكرة: `hawdaj-api/TICKET_supervisor_login_email.md`)
 - **الميزة:** [[26_DashboardAdmin]] [[21_ProfileSettings]] [[27_RolesPermissions]].
 

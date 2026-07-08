@@ -49,7 +49,7 @@
 | D31 | `contactus/send` عام بلا throttle (spam) — والموبايل نموذجه عرض فقط | Backend+Mobile | [[21_ProfileSettings]] | ⬜ |
 | D32 | Force Update **fail-open** عند انقطاع Firebase (تجاوز البوابة) | Mobile | [[20_ForceUpdate]] | ⬜ |
 | D33 | `views_num` عمود ميّت (لا يُزاد) → "الأكثر زيارة" وهمي | Backend | [[30_VisitorTracking]] | ⬜ |
-| D45 | بريد `save-trip-to-email` **متزامن بلا try/catch** (`TripController.php:85`) → فشل SMTP يعلّق 31s ويرجّع 500 | Backend | [[03_Trips]] — [[KNOWN_ISSUES#K1]] | ⬜ |
+| D45 | بريد `save-trip-to-email` **متزامن بلا try/catch** (`TripController.php:85`) → فشل SMTP يعلّق 31s ويرجّع 500. **مُخفَّف جزئيًا (2026-07-08, `7969430`):** `SafeMailTransport` عالمي يبتلع استثناء الإرسال → لا 500؛ يبقى متزامن + لا تسليم + تأخّر 31s | Backend | [[03_Trips]] — [[KNOWN_ISSUES#K1]] | 🔧 |
 | D46 | كاش صلاحيات Spatie **لا يُفرَّغ برمجيًا** (24h، لا `forgetCachedPermissions()`) → تعديلات لا تسري | Backend | [[27_RolesPermissions]] — [[KNOWN_ISSUES#K3]] | ⬜ |
 
 ## 🟢 منخفض / معطّل / سقالة

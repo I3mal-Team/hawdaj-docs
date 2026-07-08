@@ -22,12 +22,12 @@
 | POST | `update-password` | profile · UpdatePasswordCubit | `ProfileController@updatePassword` |
 | POST | `update-social` | profile | `ProfileController@updateSocial` |
 | POST | `update-photo` | profile · EditProfileCubit | `ProfileController@updatePhoto` |
-| POST | `update-location` | core/location | `ProfileController@updateLocation` |
+| POST | `update-location` | core/location | `ProfileController@updateLocation` (debounce سيرفري: يتجاهل لو <30م و<5د؛ يخزّن `user_locations` + cache user/IP) |
 | POST | `update-fcm-token` | notifications | `ProfileController@updateFcmToken` |
 | DELETE | `delete-profile` | profile · DeleteProfileCubit | `ProfileController@deleteProfile` |
 
 ## 02 — Home & Sliders ⬜
-| GET | `home` | home · HomeCubit | `Api/HomeController` |
+| GET | `home` | home · HomeCubit | `Api/HomeController` (بموقع: بلا cache؛ بلا موقع: 10د + version bump — e3cab23) |
 | GET | `sliders` | home · SlidersCubit | `Api/HomeController`/SliderController |
 
 ## 03 — Trips ⬜

@@ -38,7 +38,7 @@
 `profile`, `edit profile`, `user model`, `full_name`, `total_points`, `fcm_token`, `user_socials`, `user_locations`, `avatar`, `photo`, `gender` → **01_Authentication.md**
 
 ### Home (02 ⬜)
-`home`, `sliders`, `banners`, `HomeCubit`, `SlidersCubit`, `HomeController`, `show_in_home`, `featured` → Feature 02
+`home`, `sliders`, `banners`, `HomeCubit`, `SlidersCubit`, `HomeController`, `show_in_home`, `featured`, `applyDistanceSorting`, `getLocationCoords`, `distance IS NULL`, `home_cache_version`, `homeCacheVersion`, `bumpHomeCacheVersion`, `PlaceObserver`, `update-location`, `updateLocation`, `SafeMailTransport`, `location sorting`, `nearest`, `cache invalidation` → Feature 02
 
 ### Trips (03 ⬜)
 `trip`, `itinerary`, `prepare`, `reprepare`, `my-trips`, `enhanced trip`, `v2/trips`, `morning/evening`, `TripController`, `EnhancedTripV2Controller`, `EnhancedTripService`, `save-trip-to-email`, `prices`, `days`, `Trip model` → Feature 03

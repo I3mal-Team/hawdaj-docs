@@ -7,6 +7,7 @@
 ---
 
 ## 2026-07-08
+- `feat` · Chat/Messaging (#33) · **Backend Phase 1 مبني (REST) على فرع `feature/chat-messaging` في `hawdaj-api`.** جدولان (`conversations` unique user_id+guide_id · `messages` is_from_guide/read_at/index conversation_id+id)، Models (`Conversation`/`Message`)، `ChatController` (list/start/messages?since=<last_id>+markRead/send throttled/read)، Resources (`ConversationResource` peer relative-to-viewer + unread_count · `MessageResource` is_mine)، routes تحت **`auth:api`** (401 حقيقي، عكس نمط الفحص اليدوي — [[27_RolesPermissions]] debt) + throttle 30/min + authz مشاركين 403. lint نظيف؛ **لم يُهاجَر/يُشغَّل** (لا vendor/.env محليًا؛ test DB فقط لاحقًا). · `hawdaj-api`: migrations 2026_07_08_000001/000002, `app/Models/{Conversation,Message}.php`, `app/Http/Controllers/ChatController.php`, `app/Http/Resources/Chat/*`, `routes/api.php`
 - `docs` · Chat/Messaging (#33) · **مستند تصميم جديد لميزة محادثة User↔Tour Guide (PLANNED).** Option B معتمَد: REST + Polling. سياسة Polling: 2s داخل شاشة المحادثة، إيقاف عند الخروج، لا Polling في القائمة (refresh عند الفتح/الرجوع)، Realtime لاحقًا يشيل Polling كله. عقد API (5 endpoints `auth('api')`)، جدولا `conversations`/`messages` (test فقط)، مدخل من [[11_TourGuides]]، يبني على سقالة [[25_Realtime]]. فرع `feature/chat-messaging` (docs+api). لا كود بعد. · `FEATURES/ChatMessaging.md`, `FEATURE_INDEX.md`, `SEARCH_INDEX.md`, `PROJECT_PROGRESS.md`
 
 ## 2026-07-07

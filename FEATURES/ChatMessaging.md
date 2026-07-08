@@ -1,6 +1,6 @@
 # Feature — Chat / Messaging (محادثة User ↔ Tour Guide)
 
-> **Status:** 🟡 PLANNED / DESIGN (0% مبني) · **Priority:** P2 · **Category:** Core (تواصل)
+> **Status:** 🟢 Backend Phase 1 مبني (لم يُشغَّل/يُهاجَر — لا vendor/.env محليًا) · Mobile معلّق · **Priority:** P2 · **Category:** Core (تواصل)
 > **Repos:** Laravel `/Users/mac/hawdaj-api` (backend-first) · Flutter `/Users/mac/hawdaj/Untitled` (`lib/features/chat`) · Web لاحقًا (parity اختياري)
 > **Branch:** `feature/chat-messaging` (docs + api) · **Env:** test فقط — إنتاج read-only، لا prod creds، لا migrations إنتاج.
 > **Last updated:** 2026-07-08
@@ -54,12 +54,21 @@
 |---|---|---|
 | GET | `conversations` | قائمة محادثاتي + آخر رسالة + عدّاد غير مقروء |
 | POST | `conversations` | ابدأ/أرجِع محادثة مع `{guide_id}` |
-| GET | `conversations/{id}/messages?since=<ts>` | رسائل بعد الطابع (Polling delta) |
+| GET | `conversations/{id}/messages?since=<last_message_id>` | رسائل بعد آخر id (Polling delta؛ id أمتن من timestamp) + يعلّم رسائل الطرف مقروءة |
 | POST | `conversations/{id}/messages` | إرسال `{body}` (validate طول) |
 | POST | `conversations/{id}/read` | تعليم مقروء |
 
 - كل مسار: تحقّق أن الطالب مشارك في المحادثة (user_id أو guide.user_id) → غير ذلك 403.
-- throttle middleware على `POST messages`.
+- throttle middleware على `POST messages` (`throttle:30,1`).
+- **auth مفروض على مستوى الـroute** (`Route::middleware('auth:api')`) — 401 حقيقي، عكس نمط الفحص اليدوي في باقي الـAPI ([[27_RolesPermissions]] debt).
+
+### Backend — ملفات مبنية (Phase 1، فرع `feature/chat-messaging` في `hawdaj-api`)
+- Migrations: `database/migrations/2026_07_08_000001_create_conversations_table.php` · `..._000002_create_messages_table.php`
+- Models: `app/Models/Conversation.php` (participantIds/isParticipant/lastMessage) · `app/Models/Message.php`
+- Controller: `app/Http/Controllers/ChatController.php` (conversations/store/messages/send/read) extends `ApiModalController`
+- Resources: `app/Http/Resources/Chat/ConversationResource.php` (peer relative-to-viewer + unread_count) · `MessageResource.php` (is_mine)
+- Routes: `routes/api.php` (كتلة auth:api جديدة)
+- **حالة:** lint نظيف (`php -l`). **لم تُهاجَر/تُشغَّل** — لا `vendor/`/`.env` في البيئة الحالية. يحتاج `composer install` + `.env` test + `migrate` على **test DB فقط**.
 
 ## 8. Flutter Architecture
 - **مجلد:** `lib/features/chat/{data,presentation}` (feature-first).

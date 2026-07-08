@@ -6,6 +6,11 @@
 
 ---
 
+## 2026-07-08
+- `fix` · [[02_Home]] · **إصلاح ترتيب `/home` بالموقع (باك).** نقل `getLocationCoords()` خارج الـclosure المكاش + دالة `homeCacheKey()` جديدة (مفتاح = locale + خلية موقع مبطّنة ~1km + md5(params: page/‏*_per_page/search)) + توقيع `fetchHomeData($request,$location)` + TTL 3600→600. يزيل تجميد الترتيب وتسرّب اللغة عبر المستخدمين. شكل الرد مطابق. مُختبَر منطق المفتاح standalone (نفس الخلية→نفس المفتاح، بعيد/لغة/noloc/page→مختلف). · `hawdaj-api/app/Http/Controllers/Api/HomeController.php`
+- `fix` · [[02_Home]] [[24_Networking]] · **إيصال الموقع لـ`/home` (موبايل).** `HomeCubit.fetchHome({lat,lng})` (fallback على `LocationCache`) + `HomeRepo(Imp)` يمرّر `queryParameters` + `BlocListener<LocationCubit>` في `home_view_body` يعيد الجلب عند `LocationLoaded`. (سابقًا get عارٍ بلا موقع، LocationCubit غير مُستهلَك.) `flutter analyze` نظيف. · `hawdaj/Untitled/lib/features/home/{presentation/manager/home_cubit,data/repo,presentation/view/widgets/shared/home_view_body}`
+- `docs` · [[02_Home]] [[24_Networking]] · مزامنة: تعليم تلوّث كاش الموقع/تجميد الترتيب محلولًا (§12/13/24/28/29/35/30)، بند [[TECH_DEBT#D47]] ✅. · `FEATURES/02_Home.md`, `FEATURES/24_Networking.md`, `DECISIONS/TECH_DEBT.md`, `PROJECT_PROGRESS.md`
+
 ## 2026-07-07
 - `docs` · Governance · **سياسة "ابحث قبل أن تسأل" (Search_Before_Ask).** إنشاء `STANDARDS/Search_Before_Ask.md`: قبل أي سؤال توضيحي، ابحث في KB (Common Bugs/Debug Guide/Known Incidents/KNOWN_ISSUES/TECH_DEBT/CHANGE_LOG/SEARCH_INDEX) → حالة مشابهة تُعرَض بنسبة تشابه؛ وإلا سؤال واحد فقط. دُمجت في `CLAUDE.md §2`, `MASTER_WORKFLOW`, `BUG_FIX` (خطوة 1), README (قاعدة 6 + الشجرة). · `STANDARDS/Search_Before_Ask.md`, `CLAUDE.md`, `WORKFLOWS/MASTER_WORKFLOW.md`, `WORKFLOWS/BUG_FIX.md`, `README.md`
 - `docs` · Governance · **سياسة مزامنة التوثيق الإلزامية (Documentation_Sync).** إنشاء `STANDARDS/Documentation_Sync.md`: SSOT + تدفّق القرار (Code change → يؤثّر؟ → Update hawdaj-docs → commit → push → complete) + التحذير الإلزامي (نص عربي) + شروط INCOMPLETE (منها commit+push). دمجها في `CLAUDE.md §2` (+ التحذير + خطوة 12)، `Completion_Gate` (بندَا commit+push للتوثيق + التحذير)، `MASTER_WORKFLOW` (قاعدة ثابتة)، وكل التدفّقات السبعة (بند مزامنة في كتلة Governance)، README (قاعدة 5 + الشجرة)، شجرة CLAUDE. · `STANDARDS/Documentation_Sync.md`, `CLAUDE.md`, `STANDARDS/Completion_Gate.md`, `WORKFLOWS/*`, `README.md`

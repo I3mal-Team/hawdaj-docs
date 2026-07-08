@@ -49,6 +49,7 @@
 | D31 | `contactus/send` عام بلا throttle (spam) — والموبايل نموذجه عرض فقط | Backend+Mobile | [[21_ProfileSettings]] | ⬜ |
 | D32 | Force Update **fail-open** عند انقطاع Firebase (تجاوز البوابة) | Mobile | [[20_ForceUpdate]] | ⬜ |
 | D33 | `views_num` عمود ميّت (لا يُزاد) → "الأكثر زيارة" وهمي | Backend | [[30_VisitorTracking]] | ⬜ |
+| D47 | **تجميد ترتيب `/home` بالموقع + تسرّب اللغة** — كاش مفتاح عام `home_data` يتجاهل الموقع/اللغة، و`getLocationCoords()` داخل الـclosure، والموبايل لا يبعت lat/lng | Backend+Mobile | [[02_Home]] | ✅ (2026-07-08) |
 | D45 | بريد `save-trip-to-email` **متزامن بلا try/catch** (`TripController.php:85`) → فشل SMTP يعلّق 31s ويرجّع 500 | Backend | [[03_Trips]] — [[KNOWN_ISSUES#K1]] | ⬜ |
 | D46 | كاش صلاحيات Spatie **لا يُفرَّغ برمجيًا** (24h، لا `forgetCachedPermissions()`) → تعديلات لا تسري | Backend | [[27_RolesPermissions]] — [[KNOWN_ISSUES#K3]] | ⬜ |
 

@@ -74,7 +74,7 @@
 ## 15. Interceptor Chain (order)
 `dio_consumer.dart:26–39`:
 1. **LanguageInterceptor** (27) — `language_interceptor.dart`: async reads `selected_language` each request → `accept-language`+`locale` (default ar).
-2. **LocationInterceptor** (28) — `location_interceptor.dart`: **commented out** (would add X-Device-Latitude/Longitude).
+2. **LocationInterceptor** (28) — `location_interceptor.dart`: **commented out** (would add X-Device-Latitude/Longitude). يبقى ميّتًا عمدًا — الباك `getLocationCoords()` لا يقرأ headers أصلًا. **(2026-07-08)** الموقع يصل الآن لـ`/home` عبر **query params `lat`/`lng`** من `HomeRepoImp` (لا عبر هذا الـinterceptor). راجع [[02_Home]] §13.
 3. **TokenInterceptor** (29) — `token_interceptor.dart:8–40`: strips `accept-tokenapi` (14), async `AuthManager.getToken()` (17) → `Authorization: Bearer` (19), removes Content-Type for FormData (23–26). **onError 401 (34–40): does NOTHING** (refresh/logout commented).
 4. **ChuckerDioInterceptor** (31) — conditional (`isChuckerEnabled` pref).
 5. **PrettyDioLogger** (32–38) — **always enabled** (`enabled:true`), logs bodies+headers (**tokens/PII**).
